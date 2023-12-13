@@ -22,6 +22,7 @@ export default function Timer({ time, setTime }) {
   }, [time, isCounterStart, setTime]);
 
   const toggleCounter = () => {
+    if (isNaN(time)) return alert("Please Enter Minute First!");
     setIsCounterStart((prev) => !prev);
   };
 
@@ -35,9 +36,10 @@ export default function Timer({ time, setTime }) {
       <Button
         onClick={toggleCounter}
         icon={isCounterStart ? "fa-pause" : "fa-play"}
+        tipText={isCounterStart ? "Stop" : "Start"}
       />
       <div className="timer">{timeString}</div>
-      <Button icon="fa-arrows-rotate" onClick={resetCounter} />
+      <Button icon="fa-arrows-rotate" onClick={resetCounter} tipText="Reset" />
     </div>
   );
 }

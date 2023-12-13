@@ -1,6 +1,7 @@
 :root {
   --font-family: "Open Sans", sans-serif;
-  --primary-color: rgb(0, 194, 219);
+  --primary-color: rgb(2, 162, 184);
+  --tooltip-color: rgba(2, 163, 184, 0.445);
   --light-grey: rgb(161, 161, 161);
   --primary-white: #ffffff;
   --font-size: 62.5%;
@@ -85,9 +86,41 @@ button {
   aspect-ratio: 1;
   border-radius: 50%;
   cursor: pointer;
+  position: relative;
 }
 
 i {
   font-size: 1.25rem;
   color: var(--background-color);
+}
+
+.tt {
+  position: absolute;
+  bottom: -32px;
+  left: -6px;
+  padding: 0.35rem 1rem;
+  background-color: var(--tooltip-color);
+  border-radius: 3px;
+  color: var(--light-grey);
+  text-transform: uppercase;
+  border: none;
+  font-weight: 600;
+  font-size: 0.7rem;
+  z-index: 1;
+  cursor: default;
+  visibility: hidden;
+}
+.tt::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent var(--tooltip-color) transparent;
+}
+
+button:hover .tt {
+  visibility: visible;
 }

@@ -1,8 +1,8 @@
-export default function Button({ icon, onClick }) {
+export default function Button({ icon, onClick, tipText }) {
   return (
     <button onClick={onClick}>
       <i className={`fa-solid ${icon}`}></i>
-      <span className="tt">Play</span>
+      <span className="tt">{tipText}</span>
     </button>
   );
 }
